@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Hotel Reservation System</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+
+	<div class="container my-2">
+	<h1 class="text-primary">Hotel Reservation </h1>
+	<div class="row">
+	  <div class="col-sm-3 ">
+	  
+	  <ul class="nav navbar-dark bg-dark">
+	  <li class="nav-item"><a  th:href = "@{/registration}" class=" nav-link btn btn-md mb-3 "> Add New Guest </a></li>
+	  <li class="nav-item"><a  th:href = "@{/getGuests}" class=" nav-link btn  btn-md mb-3"> Guest List</a></li>
+	  <li class="nav-item"><a  th:href = "@{/hotelRegister}" class=" nav-link btn btn-md mb-3"> Add New Hotel </a></li>
+	  <li class="nav-item"><a  th:href = "@{/getHotels}" class=" nav-link btn btn-md mb-3"> Hotel List </a></li>
+	  <li class="nav-item"><a  th:href = "@{/roomRegister}" class="nav-link btn btn-md mb-3"> Add Room </a></li>
+	  <li class="nav-item"><a  th:href = "@{/getRooms}" class=" nav-link btn btn-md mb-3"> Room list </a></li>
+	  </ul>
+	  </div>
+	  <div class="col-sm-9">
+	  </div>
+	</div>
+	
+</div>
+</body>		
+</html>
+index
+Displaying index.
+
