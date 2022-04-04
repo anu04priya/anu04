@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1"> 
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>Add Hotel details</title>
+</head>
+<body class="container">
+
+<h1>Add Hotel Details</h1>
+<form th:action="@{/saveHotel}" th:object="${hotel}" method="post" class="form needs-validation">
+    <div class="form-group">
+        <label for="hotelName">Hotel Name</label>
+        <input class="form-control" type="text" th:field="*{hotelName}" id="hotelName" placeholder="Hotel Name">
+        <div  th:if="${#fields.hasErrors('hotelName')}" th:errors="*{hotelName}"></div>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input class="form-control" type="text" th:field="*{address}" id="address" placeholder="Address">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="city">City</label>
+        <input class="form-control" type="text" th:field="*{city}" id="city" placeholder="City">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input class="form-control" type="text" th:field="*{country}" id="country" placeholder="Country">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="state">State</label>
+        <input class="form-control" type="text" th:field="*{state}" id="state" placeholder="State">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></div>
+    </div>
+    
+   
+   
+   
+    
+    
+    <input type="submit"  class="btn btn-primary mb-3" value="Submit">
+    <a  th:href = "@{/getHotels}" class=" btn btn-primary btn-md mb-3 float-right"> Hotel List</a></li>
+</form>
+
+</body>
+</html>
+
+
+
+

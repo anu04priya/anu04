@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1"> 
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>Add booking details</title>
+</head>
+<body class="container">
+
+<h1>Add Booking Details</h1>
+<form th:action="@{/saveBooking}" th:object="${booking}" method="post" class="form needs-validation">
+    <div class="form-group">
+        <label for="bookingDate">Booking Date</label>
+        <input class="form-control" type="text" th:field="*{bookingDate}" id="bookingDate" placeholder="Booking Date">
+        <div  th:if="${#fields.hasErrors('bookingDate')}" th:errors="*{bookingDate}"></div>
+    </div>
+    <div class="form-group">
+        <label for="bookingTime">Booking Time</label>
+        <input class="form-control" type="text" th:field="*{bookingTime}" id="bookingTime" placeholder="Booking Time">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('bookingTime')}" th:errors="*{bookingTime}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="numAdults">NumAdults</label>
+        <input class="form-control" type="text" th:field="*{numAdults}" id="numAdults" placeholder="Num Adults">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('numAdults')}" th:errors="*{numAdults}"></div>
+    </div>
+    <div class="form-group">
+        <label for="numChildren">NumChildren</label>
+        <input class="form-control" type="text" th:field="*{numChildren}" id="numChildren" placeholder="Num Children">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('numChildren')}" th:errors="*{numChildren}"></div>
+    </div>
+    
+    
+   
+   
+    
+    
+    <input type="submit"  class="btn btn-primary mb-3" value="Submit">
+    <a  th:href = "@{/getBookings}" class=" btn btn-primary btn-md mb-3 float-right"> Booking List</a></li>
+</form>
+
+</body>
+</html>
+
+
+
+
