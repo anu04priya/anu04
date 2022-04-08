@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1"> 
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>Add room details</title>
+</head>
+<body class="container">
+
+<h1>Add Room Details</h1>
+<form th:action="@{/saveRoom}" th:object="${room}" method="post" class="form needs-validation">
+    <div class="form-group">
+        <label for="roomNo">Room No</label>
+        <input class="form-control" type="text" th:field="*{roomNo}" id="roomNo" placeholder="Room No">
+        <div  th:if="${#fields.hasErrors('roomNo')}" th:errors="*{roomNo}"></div>
+    </div>
+    <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <input class="form-control" type="text" th:field="*{roomType}" id="roomType" placeholder="Room Type">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('roomType')}" th:errors="*{roomType}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="roomPrice">Room Price</label>
+        <input class="form-control" type="text" th:field="*{roomPrice}" id="roomPrice" placeholder="Room Price">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('roomPrice')}" th:errors="*{roomPrice}"></div>
+    
+    </div>
+    
+   
+   
+    
+    
+    <input type="submit"  class="btn btn-primary mb-3" value="Submit">
+    <a  th:href = "@{/getRooms}" class=" btn btn-primary btn-md mb-3 float-right"> Room List</a></li>
+</form>
+
+</body>
+</html>
+
+
+
+

@@ -56,7 +56,7 @@ public class GuestServiceImpl  implements GuestService{
 		
 		gue.setFirstName(guest.getFirstName());
 		gue.setLastName(guest.getLastName());
-		//gue.setPassword(guest.getPassword());
+		gue.setPassword(guest.getPassword());
 		gue.setPhoneNo(guest.getPhoneNo());
 		gue.setEmail(guest.getEmail());
 		guestRepository.save(gue);
@@ -102,11 +102,6 @@ public class GuestServiceImpl  implements GuestService{
 	}
 
 
-/*	@Override
-	public List<Guest> getGuestByPassword(String password) {
-		return guestRepository.findGuestByPasword(password);
-	}*/
-
 	@Override
 	public List<Guest> getGuestByPhoneNo(String phoneNo) {
 		return guestRepository.findGuestByPhoneNo(phoneNo) ;
@@ -118,11 +113,10 @@ public class GuestServiceImpl  implements GuestService{
 	}
 
 	@Override
-	public List<Guest> getAllGuests(String guests) {
-		return guestRepository.findGuestByGuests(guests);
+	public List<Guest> getGuestByPassword(String password) {
+		return guestRepository.findGuestByPassword(password);
 	}
 
-	
 	
 	
 }

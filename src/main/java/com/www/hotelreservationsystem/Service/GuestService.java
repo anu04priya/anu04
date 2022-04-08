@@ -20,21 +20,22 @@ public interface GuestService {
 
 	Guest updateGuest(Guest guest, long id);
 
-	List<Guest> getAllGuest();
-
 	void deleteGuest(long id);
 
 	List<Guest> getGuestById(String id);
 
-	//List<Guest> getAllGuests();
-
-	List<Guest> getAllGuests(String guests);
 
 	//List<Guest> getGuestByPassword(String password);
 
 	List<Guest> getGuestByPhoneNo(String phoneNo);
 
 	List<Guest> getGuestByEmail(String email);
+
+	//List<Guest> getAllGuest();
+
+	List<Guest> getGuestByPassword(String password);
+
+	List<Guest> getAllGuest();
 
 	//List<Guest> getGuestByGuests(String guests);
 

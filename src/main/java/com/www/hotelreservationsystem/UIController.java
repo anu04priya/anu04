@@ -2,6 +2,8 @@ package com.www.hotelreservationsystem;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,18 +31,16 @@ public class UIController {
 	private GuestService guestService;
 	private HotelService hotelService;
 	private BookingService bookingService;
-	private AdminService adminService;
 	private RoomService roomService;
 	private PaymentService paymentService;
 	
 @Autowired	
 public UIController(GuestService guestService, HotelService hotelService,
-			BookingService bookingService, AdminService adminService, RoomService roomService,PaymentService paymentService) {
+			BookingService bookingService, RoomService roomService,PaymentService paymentService) {
 		super();
 		this.guestService = guestService;
 		this.hotelService = hotelService;
 		this.bookingService = bookingService;
-		this.adminService = adminService;
 		this.roomService = roomService;
 		this.paymentService = paymentService;
 		}
@@ -52,7 +52,7 @@ public UIController(GuestService guestService, HotelService hotelService,
 	}
 
 // Guest 
-@GetMapping("/registration")
+@GetMapping("/guestRegister")
 public String gueRegistrationForm(Model model) {
 	Guest guest = new Guest();
 	model.addAttribute("guest", guest);
@@ -60,7 +60,7 @@ public String gueRegistrationForm(Model model) {
 }
 
 @PostMapping("/saveGuest")
-public String saveGuest(@Validated  Guest guest, Errors errors, Model model) {
+public String saveGuest(@Valid  Guest guest, Errors errors, Model model) {
 	if(null != errors && errors.getErrorCount() > 0)
 		return "/getGuests";
 	else {
@@ -68,7 +68,7 @@ public String saveGuest(@Validated  Guest guest, Errors errors, Model model) {
 	List<Guest> guests =  guestService.getAllGuest();
     model.addAttribute("successMessage", "Details are saved successfully");
 	}
-    return "/getGuests";
+    return "redirect:/getGuests";
     
 }
 
@@ -92,8 +92,8 @@ public String hotelRegistrationForm(Model model) {
     return "add-hotel";
 }
 
-@PostMapping("/savehotel")
-public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
+@PostMapping("/saveHotel")
+public String addhotel(@Valid  Hotel hotel, Errors errors, Model model) {
 	if(null != errors && errors.getErrorCount() > 0)
 		return "add-hotel";
 	else {
@@ -103,7 +103,7 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
 	}
     return "redirect:/getHotels";
 }
-    @GetMapping("/gethotels")
+    @GetMapping("/getHotels")
     public String getAllHotel(Model model) {
     	
     	List<Hotel> hotels =  hotelService.getAllHotel();
@@ -122,17 +122,17 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
         return "add-booking";
     }
 
-    @PostMapping("/savebooking")
-    public String addbooking(@Validated  Booking booking, Errors errors, Model model) {
+    @PostMapping("/saveBooking")
+    public String addbooking(@Valid  Booking booking, Errors errors, Model model) {
     	if(null != errors && errors.getErrorCount() > 0)
     		return "add-booking";
     	else {
         bookingService.saveBooking(booking);
         model.addAttribute("successMessage", "Details are saved successfully");
     	}
-        return "redirect:/getbookings";
+        return "redirect:/getBookings";
     }
-        @GetMapping("/getbookings")
+        @GetMapping("/getBookings")
         public String getAllBooking(Model model) {
         	
         	List<Booking> bookings =  bookingService.getAllBooking();
@@ -142,37 +142,7 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
             return "list-booking";
             }
         
- //admin       
-        @GetMapping("/adminRegister")
-        public String admRegistrationForm(Model model) {
-        	Admin admin = new Admin();
-        	model.addAttribute("admin", admin);
-            return "add-admin";
-        }
-
-        @PostMapping("/saveadmin")
-        public String addadmin(@Validated  Admin admin, Errors errors, Model model) {
-        	if(null != errors && errors.getErrorCount() > 0)
-        		return "add-admin";
-        	else {
-        		adminService.saveAdmin(admin);
-        	    
-        	    model.addAttribute("successMessage", "Details are saved successfully");
-        	}
-			return "redirct:/getadmins";
-           
-        }
-
-        @GetMapping("/getAdmins")
-        public String getAllAdmin(Model model) {
-        	
-        	List<Admin> admins =  adminService.getAllAdmin();
-        	
-        	model.addAttribute("admins", admins);
-        	
-            return "list-admin";
-            }
-        
+ 
 //room           
        @GetMapping("/roomRegister")
         public String romRegistrationForm(Model model) {
@@ -182,7 +152,7 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
         }
 
         @PostMapping("/saveRoom")
-        public String saveRoom(@Validated  Room room, Errors errors, Model model) {
+        public String addRoom(@Valid  Room room, Errors errors, Model model) {
         	if(null != errors && errors.getErrorCount() > 0)
         		return "add-room";
         	else {
@@ -190,7 +160,7 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
         	List<Room> rooms =  roomService.getAllRoom();
             model.addAttribute("successMessage", "Details are saved successfully");
         	}
-            return "/getRooms";
+            return "redirect:/getRooms";
             
         }
 
@@ -213,7 +183,7 @@ public String addhotel(@Validated  Hotel hotel, Errors errors, Model model) {
         }
 
         @PostMapping("/savePayment")
-        public String savePayment(@Validated  Payment payment, Errors errors, Model model) {
+        public String savePayment(@Valid  Payment payment, Errors errors, Model model) {
         	if(null != errors && errors.getErrorCount() > 0)
         		return "add-payment";
         	else {

@@ -84,11 +84,7 @@ public class HotelServiceImpl  implements HotelService{
 		return hotelRepository.findHotelByState(state);
 	}
 
-	@Override
-	public List<Hotel> getAllHotels(String hotels) {
-		return hotelRepository.findAllHotels(hotels);
-	}
-
+	
 	
 }
 

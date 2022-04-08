@@ -17,8 +17,8 @@ public interface HotelService {
 	List<Hotel> getHotelByCity(String city);
 	List<Hotel> getHotelByCountry(String country);
 	List<Hotel> getHotelByState(String state);
-	//List<Hotel> getAllHotels();
-	List<Hotel> getAllHotels(String hotels);
+	//List<Hotel> getAllHotel();
+	//List<Hotel> getAllHotel(String hotels);
 	
 }
 

@@ -1,42 +1,205 @@
 
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Hotel Reservation System</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Reservation System</title>
+   <link rel="stylesheet" type="text/css" href="css/hotel.css">
+   <link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/responsiveslides.min.js"></script>
+        
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+            // "$(window).load(function() {"
+                $(function () {
+            
+                  // Slideshow 1
+                  $("#slider1").responsiveSlides({
+                    maxwidth: 1600,
+                    speed: 600
+                  });
+            });
+  </script>
 </head>
 <body>
 
-	<div class="container my-2">
-	<h1 class="text-primary">Home Page</h1>
-	<div class="row">
-	  <div class="col-sm-3 ">
-	  
-	  <ul class="nav navbar-dark bg-dark">
-	  <li class="nav-item"><a  th:href = "@{/registration}" class=" nav-link btn btn-md mb-3 "> Add  Guest </a></li>
-	  <li class="nav-item"><a  th:href = "@{/getGuests}" class=" nav-link btn  btn-md mb-3"> Guest List</a></li>
-	  <li class="nav-item"><a  th:href = "@{/hotelRegister}" class=" nav-link btn btn-md mb-3"> Add  Hotel </a></li>
-	  <li class="nav-item"><a  th:href = "@{/getHotels}" class=" nav-link btn btn-md mb-3"> Hotel List </a></li>
-	  <li class="nav-item"><a  th:href = "@{/bookingRegister}" class="nav-link btn btn-md mb-3"> Add Booking </a></li>
-	  <li class="nav-item"><a  th:href = "@{/getbookings}" class=" nav-link btn btn-md mb-3"> Booking list </a></li>
-	  <li class="nav-item"><a  th:href = "@{/roomRegister}" class="nav-link btn btn-md mb-3"> Add Room </a></li>
-	  <li class="nav-item"><a  th:href = "@{/getrooms}" class=" nav-link btn btn-md mb-3"> Room list </a></li>
-	  <li class="nav-item"><a  th:href = "@{/paymentRegister}" class="nav-link btn btn-md mb-3"> Add Payment </a></li>
-	  <li class="nav-item"><a  th:href = "@{/getpayments}" class=" nav-link btn btn-md mb-3"> Payment list </a></li>
-	  </ul>
-	  </div>
-	  <div class="col-sm-9">
-	  </div>
-	</div>
-	
+
+<header class="header">
+    <nav class="navbar navbar-style">
+     
+        <div class="navbar-header">
+        
+
+            <a href="" class="navbar-brand"><img src="Homepage.jpg" style="height:30px; width:100px; margin-top: 20px;"></a>
+            
+          
+    	</div> 
+    	<div class="collapse navbar-collapse text-center" id="">
+    		<ul class="nav navbar-nav navbar-right">
+				
+	  <li class="active"><a href="index.html">Home</a></li>
+      <li class="nav-item"><a  th:href = "@{/guestRegister}" class=" nav-link btn btn-md mb-3 ">Add Guest </a></li>
+      <li class="nav-item"><a  th:href = "@{/getGuests}" class=" nav-link btn  btn-md mb-3">Guests</a></li>
+      <li class="nav-item"><a  th:href = "@{/hotelRegister}" class=" nav-link btn btn-md mb-3"> Add Hotel </a></li>
+      <li class="nav-item"><a  th:href = "@{/getHotels}" class=" nav-link btn btn-md mb-3">Hotels </a></li>
+      <li class="nav-item"><a  th:href = "@{/roomRegister}" class=" nav-link btn btn-md mb-3"> Add Room </a></li>
+      <li class="nav-item"><a  th:href = "@{/getRooms}" class=" nav-link btn btn-md mb-3">Rooms </a></li>
+      <li class="nav-item"><a  th:href = "@{/bookingRegister}" class=" nav-link btn btn-md mb-3"> Add Booking </a></li>
+      <li class="nav-item"><a  th:href = "@{/getBookings}" class=" nav-link btn btn-md mb-3">Bookings </a></li>
+      <li class="nav-item"><a  th:href = "@{/paymentRegister}" class=" nav-link btn btn-md mb-3"> Add Payment </a></li>
+      <li class="nav-item"><a  th:href = "@{/getPayments}" class=" nav-link btn btn-md mb-3">Payments </a></li>
+      <li>
+      <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Looking for" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      </li>
+
+ 
+<li>
+<div class="nav navbar-nav navbar-right">
+        <li><a href="#" th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 </div>
-</body>		
+</li>
+</ul>
+     </div>
+		
+	
+</nav>
+</header>
+
+
+
+<div class="image-slider">
+                       
+                            <ul class="rslides" id="slider1">
+                              <li><img src="room1.jpg" alt=""></li>
+                              <li><img src="room3.jpg" alt=""></li>
+                              <li><img src="room5.jpg" alt=""></li>
+                            </ul>
+                         
+</div>
+
+
+
+<div class="content">
+                <div class="quit">
+                    <p><span class="start">Your </span> hotel's <span class="end">Motto .</span></p>
+                </div>
+                    <div class="content-grids">
+                        <div class="wrap">
+                        <div class="content-grid">
+                            <div class="content-grid-pic">
+                                <a href="#"><img src="images/icon1.png" title="image-name" /></a>
+                            </div>
+                            <div class="content-grid-info">
+                                <h3>Best food Ever</h3>
+                                <p>"DESCRIPTION"</p>
+                                <a href="#">Read More</a>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-grid-pic">
+                                <a href="#"><img src="images/icon2.png" title="image-name" /></a>
+                            </div>
+                            <div class="content-grid-info">
+                                <h3>24x7 phone support</h3>
+                                <p>"DESCRIPTION"</p>
+                                <a href="#">Read More</a>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        <div class="content-grid">
+                            <div class="content-grid-pic">
+                                <a href="#"><img src="images/iocn3.png" title="image-name" /></a>
+                            </div>
+                            <div class="content-grid-info">
+                                <h3>Best Room Services</h3>
+                                <p>"DESCRIPTION"</p>
+                                <a href="#">Read More</a>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+
+<div class="content-box">
+                    <div class="wrap">
+                    <div class="content-box-left">
+                        <div class="content-box-left-topgrid">
+                            <h3>welcome to our Hotel</h3>
+                            <p>  Feel Like Home </p>
+                            <p> Hotel's Description</p>
+                            <span>For more information about our Hotel, Call 980XXXXXXX</span>
+                        </div>
+                        <div class="content-box-left-bootomgrids">
+                            <div class="content-box-left-bootomgrid">
+                                <h3>Deluxe Rooms</h3>
+                                <p> Your description about deluxe rooms</p>
+                                <a href="#"><img src="images/slider1.jpg" title="image-name" /></a>
+                            </div>
+                            <div class="content-box-left-bootomgrid">
+                                <h3>Luxury Rooms</h3>
+                                <p>Your description about Luxury rooms</p>
+                                <a href="#"><img src="images/slider2.jpg" title="image-name" /></a>
+                            </div>
+                            <div class="content-box-left-bootomgrid lastgrid">
+                                <h3>Executive Rooms</h3>
+                                <p>Your description about Executive rooms</p>
+                                <a href="#"><img src="images/slider3.jpg" title="image-name" /></a>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="content-box-right">
+                        <div class="content-box-right-topgrid">
+                            <h3>To days Specials</h3>
+                            <a href="#"><img src="images/slider1.jpg" title="imnage-name" /></a>
+                            <h4>Super Discount Offer</h4>
+                            <p>"DESCRIPTION"</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="content-box-right-bottomgrid">
+                            
+                        </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="clear"> </div>
+                <div class="boxs">
+                <div class="wrap">
+                <div class="box">
+            
+                </div>
+                
+        
+                <div class="clear"> </div>
+            </div>
+         
+        </div>
+        
+        <div class="copy-tight">
+            <p>&copy HOTEL, SHIRDI 2022 "THIS PROJECT IS FOR <a href="http://www.code-projects.org/">BOOK-HOTELS"</a></p>
+        </div>
+     
+            </div>
+           
+
+</body>
 </html>
-
-
+hrs index
+Displaying hrs index.

@@ -22,32 +22,33 @@ public class Guest {
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
-	/*@Column(name="password")
-	private String password;*/
 	@Column(name="phone_no")
 	private String phoneNo;
 	@Column(name="email")
 	private String email;
+	@Column(name="password")
+	private String password;
 	
 	@OneToOne
 	@JoinColumn(name="booking_id")
 	private Booking bookingId ;
 	
 
-	public Guest(long id, String firstName, String lastName, String phoneNo, String email,
+	public Guest(long id, String firstName, String lastName, String phoneNo, String email,String password,
 			Booking bookingId) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		//this.password = password;
 		this.phoneNo = phoneNo;
 		this.email = email;
+		this.password = password;
 		this.bookingId = bookingId;
 	}
 	public Guest() {
 		
 	}
+
 	public long getId() {
 		return id;
 	}
@@ -73,12 +74,6 @@ public class Guest {
 		this.lastName = lastName;
 	}
 	
-/*	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}*/
 	public String getPhoneNo() {
 		return phoneNo;
 	}
@@ -91,6 +86,15 @@ public class Guest {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPassword() {
+		return password;
+	}
+	
+	
 	 
 	
 

@@ -14,7 +14,7 @@
      <div class="container my-2">
         <div class="card">
             <div class="card-body">
-                <div th:switch="${payments}" class="container my-5">
+                <div th:switch="${payment}" class="container my-5">
                     <p class="my-5">
                         <a href="/paymentRegister" class="btn btn-primary"><i class="fas fa-user-plus ml-2">  Add Payment </i></a>
                     </p>
@@ -33,13 +33,13 @@
                                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="payment : ${payments}">  <!-- 1 -->
+                                    <tr th:each="payment : ${payment}">  <!-- 1 -->
                                         <td th:text="${payment.roomCharge}"></td>
                                         <td th:text="${payment.paymentDate}"></td>
                                         <td th:text="${payment.creditcardNo}"></td>
                                    
-                                        <td><a th:href="@{/payments/editpay/{id}(id=${payment.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2">Edit</i></a></td> 
-                                        <td><a th:href="@{/payments/deletepay/{id}(id=${payment.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2">Delete</i></a></td> 
+                                        <td><a th:href="@{/payment/editpay/{id}(id=${payment.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2">Edit</i></a></td> 
+                                        <td><a th:href="@{/payment/deletepay/{id}(id=${payment.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2">Delete</i></a></td> 
                                     </tr>
                                 </tbody>
                             </table>

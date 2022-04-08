@@ -14,7 +14,7 @@
      <div class="container my-2">
         <div class="card">
             <div class="card-body">
-                <div th:switch="${bookings}" class="container my-5">
+                <div th:switch="${booking}" class="container my-5">
                     <p class="my-5">
                         <a href="/bookingRegister" class="btn btn-primary"><i class="fas fa-user-plus ml-2">  Add Booking </i></a>
                     </p>
@@ -35,15 +35,15 @@
                                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="booking : ${bookings}">  <!-- 1 -->
+                                    <tr th:each="booking : ${booking}">  <!-- 1 -->
                                         <td th:text="${booking.bookingDate}"></td>
                                         <td th:text="${booking.bookingTime}"></td>
                                         <td th:text="${booking.numAdults}"></td>
                                         <td th:text="${booking.numChildren}"></td>
                                         
                                         
-                                        <td><a th:href="@{/bookings/editbook/{id}(id=${booking.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2">Edit</i></a></td> 
-                                        <td><a th:href="@{/bookings/deletebook/{id}(id=${booking.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2">Delete</i></a></td> 
+                                        <td><a th:href="@{/booking/editbook/{id}(id=${booking.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2">Edit</i></a></td> 
+                                        <td><a th:href="@{/booking/deletebook/{id}(id=${booking.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2">Delete</i></a></td> 
                                     </tr>
                                 </tbody>
                             </table>

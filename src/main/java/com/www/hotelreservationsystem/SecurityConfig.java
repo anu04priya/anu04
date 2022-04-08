@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 		
 	}
@@ -33,27 +34,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	http.csrf().disable()
 
 		.authorizeRequests()
-		.antMatchers("/guest/*").hasAuthority("ROLE_GUEST")
+		.antMatchers("/guest/*").hasAuthority("ROLE_USER")
 		.antMatchers("/admin/*").hasAuthority("ROLE_ADMIN")
 		.antMatchers("/").permitAll()// index.html
-		.antMatchers("/**").authenticated()
+	//	.antMatchers("/**").authenticated()
 
 		.and().httpBasic()
 		
-		.and().formLogin()
-        .defaultSuccessUrl("/guest/customerAccount",true)
-		.permitAll()
+		.and().formLogin().permitAll()
 		.and().logout().permitAll()
 		;
 
 	}
+  	
+  	
+  	@Bean
+  	public PasswordEncoder getPasswordEncoder() {
+  		return NoOpPasswordEncoder.getInstance();
+  	}
 	
   	
   
-	@Bean
-	public PasswordEncoder getPasswordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
-	}
+	
 }
 	
 	
